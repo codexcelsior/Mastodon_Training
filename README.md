@@ -1,4 +1,4 @@
-# Hướng dẫn chi tiét cách cài đặt Arduino IDE, ESP32, và các thư viện
+# Hướng dẫn chi tiét cách cài đặt Arduino IDE, ESP32, và các thư viện:
 
 
  **Bước 1:** Truy cập vào trang https://www.arduino.cc/en/software -> Chọn installer tương ứng hiểu điều hành bạn đang sử dụng
