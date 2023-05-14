@@ -1,4 +1,4 @@
-#include <PS2X_lib.h>
+#include <PS2X_lib.h> //Khai báo header từ thư viện PS2X
 
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:
