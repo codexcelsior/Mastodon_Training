@@ -9,11 +9,11 @@
 + Cài đặt các thư viện qua [link](https://drive.google.com/file/d/1VkmcY8CSZpBvxIFzZDxDbCaMXLNusBLa/view?usp=share_link) và giải nén zip sau khi tải thành công. 
 + Sau khi cài đặt thành công, copy paste hoặc chia đôi cửa sổ kéo thả từ thư mục mới giải nén vào đường folder có đường dẫn Documents\Arduino\libraries. **Lưu ý: Khi không có thư mục libraries trong Arduino thì tự tạo một thư mục libraries và kéo thả vào/ paste bình thường**
 ![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/bf3455ab-7863-4ea0-8e4c-92a33ef7898b)
-+ Cài đặt firmware của ESP32: Copy đường dẫn https://dl.espressif.com/dl/package_esp32_index.json vào mục Additional Board Manager URLS trong mục File/Preferences của Aruino IDE rồi bấm OK
++ Cài đặt firmware của ESP32: Copy đường dẫn https://dl.espressif.com/dl/package_esp32_index.json vào mục Additional Boards Manager URLs trong mục File/Preferences của Aruino IDE rồi bấm OK
 ![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/263ce00b-5975-409a-98c6-dc81d0c9678f)
 + Sau khi cài xong bấm vào ô mục thứ 2 (Board Manager) và tiến hành tìm kiếm và bấm vào nút Install (ở cùng vị trí với nút Remove theo màn hình của người đã cài)
 ![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/b03e6783-c7c7-4e6a-b9fb-869650369ea9)
-+ Tiến hành chọn loại mạch. **Mạch bánh mì sử dụng mạch điều khiển ESP32-WROVER-E 16MB nên ta sẽ chọn ESP32 WROVER MODULE trong mục Board**
++ Tiến hành chọn loại mạch. **Mạch bánh mì sử dụng mạch điều khiển ESP32-WROVER-E 16MB nên ta sẽ chọn ESP32 Wrover Module trong mục Board**
  ![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/6e82dd9e-50e0-4a6f-b9de-050cecb7ea9a)
 
 **ALL DONE ^^ Bạn đã có thể tiến hành viết code trên Text Editor Arduino IDE. Chúc may các bạn mắn và không gặp BUG kaka =)))))** 
