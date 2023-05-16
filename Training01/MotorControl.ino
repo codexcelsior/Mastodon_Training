@@ -1,4 +1,22 @@
 #include <Adafruit_PWMServoDriver.h> //Khai báo header từ thư việt Adafruit
+#include <Wire.h>
+
+
+// Kênh PWM (Chân của các servo và DC motor) điều khiển động cơ
+#define PWM_DC0A            0
+#define PWM_DC0B            1
+#define PWM_DC1A            2
+#define PWM_DC1B            3
+#define PWM_DC2A            4
+#define PWM_DC2B            5
+#define PWM_DC3A            6
+#define PWM_DC3B            7
+#define PWM_SERVO0          8
+#define PWM_SERVO1          9
+#define PWM_SERVO2          10
+#define PWM_SERVO3          11
+#define PWM_SERVO4          12
+
 
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:
@@ -12,6 +30,28 @@ void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động 
   pwm.setPWMFreq(50); //Đặt tần số giao động trên chân tối đa 50Hz (Để dùng cho cả Servo) (Pulse Width Modulation)
   Serial.println("OK"); //In ra OK một khi code đã ổn
 
+}
+
+// Hàm điều khiển động cơ DC (nhận số động cơ từ 0->3 ứng với cặp kênh PWM 0-1/2-3/4-5/6-7, giá trị tốc độ từ -4095 đến 4095)
+void ctrl_dc(uint8_t motor, int16_t speed) {
+  switch(motor) {
+    case 0:
+      pwm.setPWM(PWM_DC0A, 0, (speed > 0) ? speed : 0);
+      pwm.setPWM(PWM_DC0B, 0, (speed < 0) ? (-speed) : 0);
+      break;
+    case 1:
+      pwm.setPWM(PWM_DC1A, 0, (speed > 0) ? speed : 0);
+      pwm.setPWM(PWM_DC1B, 0, (speed < 0) ? (-speed) : 0);
+      break;
+    case 2:
+      pwm.setPWM(PWM_DC2A, 0, (speed > 0) ? speed : 0);
+      pwm.setPWM(PWM_DC2B, 0, (speed < 0) ? (-speed) : 0);
+      break;
+    case 3:
+      pwm.setPWM(PWM_DC3A, 0, (speed > 0) ? speed : 0);
+      pwm.setPWM(PWM_DC3B, 0, (speed < 0) ? (-speed) : 0);
+      break;
+  }
 }
 
 void loop() {
@@ -34,5 +74,7 @@ void loop() {
     pwm.setPWM(1, 0, -v);
   }
 
+  //Hướng dẫn sử dùng hàm điều khiển DC Motor:
+  
 }
 

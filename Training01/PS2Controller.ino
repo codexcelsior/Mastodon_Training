@@ -1,5 +1,14 @@
 #include <PS2X_lib.h> //Khai báo header từ thư viện PS2X
 
+
+// 1. Chân cắm đầu thu tay cầm PS2
+#define PS2_ATT             10
+#define PS2_CMD             11
+#define PS2_DAT             12
+#define PS2_CLK             13
+
+
+
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:
   Serial.begin(115200); //Serial monitor là một bộ cài sẵn đùng để debug code 
@@ -7,14 +16,12 @@ void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động 
   Serial.println("Welcome to the Mastodon Banhmi Console"); //In ra Serial dòng chữ trong ngoặc 
 
 
-  while(ps2.config_gamepad(13, 11, 10, 12) != 0)
+  while(ps2.config_gamepad(PS2_CLK, PS2_CMD, PS2_ATT, PS2_DAT) != 0)
   {
     Serial.println("PS2 error");
     delay(500);
   } //Test config của tay cầm ps2 qua các cổng. Khi giá trị của một trong các cổng của tay cầm = 0 
   // thì in ra dòng chữ PS2 error để nhận biết cho người dùng đang có lỗi với port kết nối của controllẻ 
-
-  Serial.println("OK"); //In ra OK một khi code đã ổn
 
 }
 
