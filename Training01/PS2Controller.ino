@@ -7,7 +7,9 @@
 #define PS2_DAT             12
 #define PS2_CLK             13
 
-
+//Khai báo linh kiện
+Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver();
+PS2X ps2;
 
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:

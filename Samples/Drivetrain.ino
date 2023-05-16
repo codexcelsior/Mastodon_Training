@@ -1,6 +1,6 @@
 #include <Adafruit_PWMServoDriver.h> //Khai báo header từ thư việt Adafruit
 #include <PS2X_lib.h> //Khai báo header từ thư viện PS2X
-#include <Wire.h>
+#include <Wire.h> 
 
 // Số chân của cổng đầu vào PS2
 #define PS2_ATT             10
@@ -18,15 +18,16 @@
 #define PWM_DC3A            6
 #define PWM_DC3B            7
 
-
+//Khai báo linh kiện 
+Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver();
+PS2X ps2;
 
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   Serial.begin(115200); //Serial monitor là một bộ cài sẵn đùng để debug code 
 
   Serial.println("Welcome to the Mastodon Banhmi Console"); //In ra Serial dòng chữ trong ngoặc 
 
-    Adafruit_PWMServoDriver pwm;
-    PS2
+
 
     while(ps2.config_gamepad(PS2_CLK, PS2_CMD, PS2_ATT, PS2_DAT) != 0)
   {

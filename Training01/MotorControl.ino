@@ -25,7 +25,9 @@
 // set tốc độ động cơ
 #define SPD_FAST            2047
 
-
+//Khai báo linh kiện 
+Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver();
+PS2X ps2;
 
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:
