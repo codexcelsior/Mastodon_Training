@@ -25,4 +25,4 @@
 ![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/b58a7d23-818d-4d74-bfb0-6a7f09ef65f3)
 
 
-
+# Hướng dẫn cách sử dụng các hàm và giải mã code mẫu (COMING SOON)
