@@ -12,6 +12,7 @@ Adafruit_PWMServoDriver pwm; //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit
 #define PWM_DC2B            5
 #define PWM_DC3A            6
 #define PWM_DC3B            7
+
 #define PWM_SERVO0          8
 #define PWM_SERVO1          9
 #define PWM_SERVO2          10
@@ -76,6 +77,5 @@ void loop() {
 
     //Hàm mẫu để sử dụng Servo 
     ctrl_servo180(SRV_INTAKE, (intake) ?  SPD_INTAKE : 0);
-
 
 }
