@@ -8,8 +8,8 @@ void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động 
  //Các hàm check lỗi nếu có
 
   pwm.begin(); //Khởi tạo xung pwm
-  pwm.setOscillatorFrequency(27000000);//Đặt tần số giao động liên tục là 27000000 (27 triệu)
-  pwm.setPWMFreq(50); //Đặt tần số giao động trên chân tối đa 50Hz (Pulse Width Modulation)
+  pwm.setOscillatorFrequency(27000000);//Đặt tần số xung trong PCA9685 là 27000000 (27MHz) (27 triệu)
+  pwm.setPWMFreq(50); //Đặt tần số giao động trên chân tối đa 50Hz (Để dùng cho cả Servo) (Pulse Width Modulation)
   Serial.println("OK"); //In ra OK một khi code đã ổn
 
 }
