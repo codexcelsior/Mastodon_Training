@@ -186,7 +186,7 @@ Vận tốc hóa thời gian được cho đó là thời gian từ -4095 tới 
 
 **Giải thích:** Nếu vận tốc dương thì chân PWM_DC1A của Motor DC1 hoạt động ở tốc độ 4095 (hoặc tùy vào v mong muốn của coder miễn nó dương) và chân bên PWM_1B bên kia chạy ở tốc độ 0. Nếu vận tốc âm thì chân PWM_DC1A của động cơ DC Motor 1 sẽ không chạy do điều kiện vận tốc phải dương, chân PWM_DC1B sẽ chạy nhờ vào điều kiện vận tốc âm và nhưng thực tế vẫn chạy ở vận tốc dương vì là ```-speed```.
 
-**Ghi Nhớ: VIỆC VẬN TỐC ÂM CHỈ DÙNG ĐỂ ĐIỀU KIỆN TA THAY ĐỔI CHUIỀU CHỨ KHÔNG TÁC DỤNG TRONG VIỆC QUY ĐỊNH VẬN TỐC VÀ THỜI GIAN THỰC TÉ VÌ VẬN TỐC VÀ THỜI GIAN LUÔN DƯƠNG. NÊN SAU ĐÓ TA THẤY HÀM ĐÃ SỬ DỤNG ```(-speed)```  ĐỂ NGHỊCH ĐẢO LẠI TRẠNG THÁI ÂM CỦA ```speed``` VỀ VẬN TỐC VÀ THỜI GIAN DƯƠNG ĐỂ MOTOR CHẠY ĐƯỢC. Tóm gọn lại: VẬN TỐC ÂM DÙNG ĐẺ QUY ĐỊNH CHIỀU QUAY**
+**Ghi Nhớ: VIỆC VẬN TỐC ÂM CHỈ DÙNG ĐỂ KÍCH HOẠT ĐIỀU KIỆN TA THAY ĐỔI CHUIỀU CHỨ KHÔNG TÁC DỤNG TRONG VIỆC QUY ĐỊNH VẬN TỐC VÀ THỜI GIAN THỰC TÉ VÌ VẬN TỐC VÀ THỜI GIAN LUÔN DƯƠNG. NÊN SAU ĐÓ TA THẤY TRONG HÀM Ở ```setPƯM()``` THỨ 2 LÀ  ```(-speed)``` CHỨ KHÔNG PHẢI ```(speed)```  ĐỂ NGHỊCH ĐẢO LẠI TRẠNG THÁI ÂM CỦA ```speed``` VỀ VẬN TỐC VÀ THỜI GIAN DƯƠNG ĐỂ MOTOR CHẠY ĐƯỢC. Tóm gọn lại: VẬN TỐC ÂM DÙNG ĐẺ QUY ĐỊNH CHIỀU QUAY**
 
 **Sau khi đọc xong bạn có thể quên đống code ở trên cũng được vì chúng ta có thể hoàn toàn copy và paste. Việc sử dụng hàm ```ctrl_dc();``` ở ```loop()``` quan trọng hơn.
 
