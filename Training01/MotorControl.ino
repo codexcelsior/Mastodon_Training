@@ -39,7 +39,7 @@ void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động 
 }
 
 // Hàm điều khiển động cơ DC (nhận số động cơ từ 0->3 ứng với cặp kênh PWM 0-1/2-3/4-5/6-7, giá trị tốc độ từ -4095 đến 4095)
-void ctrl_dc(uint8_t motor, int16_t  ) { 
+void ctrl_dc(uint8_t motor, int16_t speed) { 
   switch(motor) {
     case 0:
       pwm.setPWM(PWM_DC0A, 0, (speed > 0) ? speed : 0); //Kênh PWM_DC0A, vị trí bắt đầu = 0, xung của 1 chiều là 50% đạt được sau thời gian = 2047 micro second
