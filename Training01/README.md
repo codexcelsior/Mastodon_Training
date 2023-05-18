@@ -86,7 +86,7 @@ Bảng các nút để và các phân loại của các nút:
 
 + **Bước 6:** Đọc giá trị từ cần điều khiển Analog (Joystick):
 
-```    Serial.println(ps2.Analog(PSS_LX), DEC); ``` là hàm dùng để đọc giá trị từ cần Analog (Joystick) bên trái. Nó sẽ trả ra giá trị từ 0 -> 255 tương ứng với giới hạn của mỗi trục X và Y trên cân Analog (Joystick) của PS4.
+```Serial.println(ps2.Analog(PSS_LX), DEC); ``` là hàm dùng để đọc giá trị từ cần Analog (Joystick) bên trái. Nó sẽ trả ra giá trị từ 0 -> 255 tương ứng với giới hạn của mỗi trục X và Y trên cần Analog (Joystick) của PS4.
 
 + **Mở rộng**: Cách điều khiển động cơ Motor bằng cần Analog: (Tham khảo code DC Motor) trong Training01
 
