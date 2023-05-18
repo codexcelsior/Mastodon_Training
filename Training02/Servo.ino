@@ -27,6 +27,7 @@ Adafruit_PWMServoDriver pwm; //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit
 
 // Cổng của servo
 #define SRV_INTAKE          0
+#define SRV_DOOR            
 
 // Tốc độ động cơ
 #define SPD_INTAKE          100 // servo
@@ -74,8 +75,13 @@ void loop() {
     // put your main code here, to run repeatedly: 
     
     bool intake = True;
+    bool door = True;
 
     //Hàm mẫu để sử dụng Servo 
-    ctrl_servo180(SRV_INTAKE, (intake) ?  SPD_INTAKE : 0);
-
+    
+    ctrl_servo360(SRV_INTAKE, (intake) ?  SPD_INTAKE : 0);
+    //ctrl_servo180(cổng, tốc quay);
+    
+    ctrl_servo180(SRV_DOOR, (door) ? 90 : 0);
+    //ctrl_servo180(cổng, góc quay);
 }
