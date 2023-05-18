@@ -153,7 +153,7 @@ Trong khi đó ta ưu tiên những hàm thuận tiện để sử dụng lại 
 
 ```
 
-void ctrl_dc(uint8_t motor, int16_t  ) {
+void ctrl_dc(uint8_t motor, int16_t speed) {
   switch(motor) {
     case 0:
       pwm.setPWM(PWM_DC0A, 0, (speed > 0) ? speed : 0); //Kênh PWM_DC0A, vị trí bắt đầu = 0, xung của 1 chiều là 50% đạt được sau thời gian = 2047 micro second
