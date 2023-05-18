@@ -18,6 +18,10 @@
 #define PWM_DC3A            6
 #define PWM_DC3B            7
 
+
+// Khai báo tốc độ động cơ DC
+#define SPD_FAST            
+
 //Khai báo linh kiện 
 Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver();
 PS2X ps2;
