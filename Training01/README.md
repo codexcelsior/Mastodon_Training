@@ -107,7 +107,7 @@ Bảng các nút để và các phân loại của các nút:
 Thông thường thời gian hoạt động của xung tương đương với thời gian hoạt động của motor. Khi ta quy định xung ta quy định cho công xuất của motor chạy ở mức độ bao nhiêu phần trăm. **Ví dụ:** Xung 75% sẽ có thời gian hoạt động là 75% (hay công suất 75%) và 25% nghỉ. Các xung còn lại tương tự như vậy.
 
 **Hướng dẫn code một DC Motor:**
-- Cấu thành của việc code một motor gồm có: 2 chân điện để đặt xung (Kênh PWM), Tên motor và kênh tương ứng (Kênh Motor của PCA9685 - Khi người dùng cắm vào mạch Bánh Mì), tốc độ của Motor (Được quy định theo khoảng thời gian từ -4095 tới 4095 microsecond) (**Tại sao lại là -4095 ???? Điều này sẽ được giải thích tại phần code chuẩn hóa** 
+- Cấu thành của việc code một motor gồm có: 2 chân điện để đặt xung (Kênh PWM), Tên motor và kênh tương ứng (Kênh Motor của PCA9685 - Khi người dùng cắm vào mạch Bánh Mì), tốc độ của Motor (Được quy định theo khoảng thời gian từ -4095 tới 4095 microsecond) (**Tại sao lại là -4095 ???? Điều này sẽ được giải thích tại phần code chuẩn hóa**) 
 
 **Lưu ý:** khi cần code tên motor và cổng tương ứng trên PCA9685 nên đặt tên dễ nhớ và thống nhất phương thức đặt tên với những coder khác.
 
