@@ -209,7 +209,7 @@ Ngoài ra ta có thể khải báo trước tốc độ ví dụ như muốn cô
 
 #define SPD_FAST            2047
 // Vận tốc đạt ở 2047 giây tức 50% chu kỳ. Tính toán thời gian để đạt tại 1 chu kỳ n% 
-//bằng cách lấy (4095 nhân n%) -1 
+//bằng cách lấy (4096 nhân n%) -1 
 ```
 
 Sử dụng hàm 
