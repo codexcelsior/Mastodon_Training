@@ -2,6 +2,11 @@
 #include <Adafruit_PWMServoDriver.h> //Khai báo header từ thư việt Adafruit
 #include <PS2X_lib.h> //Khai báo header từ thư viện PS2X
 
+//Khai báo linh kiện 
+Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver();
+PS2X ps2;
+
+
 void setup() { //Hàm set up chạy khởi tạo một lần khi khởi động mạch 
   // put your setup code here, to run once:
   Serial.begin(115200); //Serial monitor là một bộ cài sẵn đùng để debug code 
