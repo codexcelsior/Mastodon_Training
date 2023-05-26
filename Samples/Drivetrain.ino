@@ -3,10 +3,10 @@
 #include <Wire.h> 
 
 // Số chân của cổng đầu vào PS2
-#define PS2_ATT             10
-#define PS2_CMD             11
+#define PS2_ATT             15
+#define PS2_CMD             13
 #define PS2_DAT             12
-#define PS2_CLK             13
+#define PS2_CLK             14
 
 // Kênh PWM (Chân của các servo và DC motor) điều khiển động cơ (Số chân của động cơ DC hay servo đều gấp đôi số kênh của động cơ đó)
 #define PWM_DC0A            0
