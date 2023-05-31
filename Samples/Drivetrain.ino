@@ -5,25 +5,26 @@
 #include <Wire.h>
 
 //Set up các chân tín hiệu của tay cầm PS2
-#define PS2_ATT 15
-#define PS2_CMD 13
 #define PS2_DAT 12
+#define PS2_CMD 13
 #define PS2_CLK 14
+#define PS2_ATT 15
 
 
-// Kênh PWM (Chân của các servo và DC motor) điều khiển động cơ (Số chân của động cơ DC hay servo đều gấp đôi số kênh của động cơ đó)
-#define PWM_DC1A 1
-#define PWM_DC1B 2
-#define PWM_DC2A 3
-#define PWM_DC2B 4
-#define PWM_DC3A 5
-#define PWM_DC3B 6
-#define PWM_DC4A 7
-#define PWM_DC4B 8
+// Kênh PWM (Chân của các servo và DC motor) điều khiển động cơ (Số chân của động cơ DC hay servo đều gấp đôi số kênh của động cơ đó) (Nếu vẫn sai chân thì invert lại)
+#define PWM_DC1A 14 
+#define PWM_DC1B 15 
+#define PWM_DC2A 8 
+#define PWM_DC2B 9 
+#define PWM_DC3A 10 
+#define PWM_DC3B 11 
+#define PWM_DC4A 12 
+#define PWM_DC4B 13 
 
 // Động cơ DC
 #define MOT_LEFT 1
 #define MOT_RIGHT 2
+#define SHOOTER_1 3
 
 // set tốc độ động cơ
 #define SPD_FAST 2047
@@ -51,7 +52,7 @@ void setup() {  //Hàm set up chạy khởi tạo một lần khi khởi động
 
 void ctrl_dc(uint8_t motor, int16_t speed) {
   switch (motor) {
-    case 1:
+    case 1: //Cho bánh bên tay trái
       pwm.setPWM(PWM_DC1A, 0, ((speed > 0) ? speed : 0) );  //Kênh PWM_DC1A, vị trí bắt đầu = 0, xung của 1 chiều là 50% đạt được sau thời gian = 2047 micro second
       pwm.setPWM(PWM_DC1B, 0, ((speed < 0) ? (-speed) : 0) );
       break;
