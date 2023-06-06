@@ -146,10 +146,10 @@ Người code có thể gán số tùy thích vì chưa cần phải tham chiế
 
 + **Bước 4:** Setup (Tương tự như điều khiển PS2 có thể đọc lại nếu quên)
 
-+ **Bước 5:** Chuẩn hóa hàm Motor DC để tái sử dụng nhiều lần và giải thích code 
++ **Bước 5**: Chuẩn hóa hàm Motor DC để tái sử dụng nhiều lần và giải thích code
 
-Việc sử dụng đi sử dụng lại hàm ```setPWM()``` để phải khai từng chân có thể khiến bạn bị rối vì mõi Motor cũng phải khai 2 chân.
-Trong khi đó ta ưu tiên những hàm thuận tiện để sử dụng lại trong ```loop()```
+Việc sử dụng đi sử dụng lại hàm ```setPWM()``` để phải khai đi khai lại từng chân có thể khiến bạn bị rối vì mõi Motor cũng phải khai 2 chân. Trong khi đó ta ưu tiên những hàm chuẩn hóa thuận tiện để sử dụng lại trong ```loop()```
+
 
 ```
 
@@ -177,7 +177,7 @@ void ctrl_dc(uint8_t motor, int16_t speed) {
 ```
 
 + **Giải thích code:** 
-Vận tốc hóa thời gian được cho đó là thời gian từ -4095 tới 4095.  Khi ta nói vận tốc (```speed```) 4095 tức là vận tốc tại thời điểm chạy ở 4095 microsecond. Câu trả lời là: Không đối với cả vận tốc và thời gian và néu vận tốc âm thì Motor. **Tại sao?** Code trên có giải thích mọi thứ.
+Vận tốc hóa thời gian được cho đó là thời gian từ -4095 tới 4095.  Khi ta nói biến vận tốc (```speed```) 4095 tức là vận tốc tại thời điểm chạy ở 4095 microsecond. Câu trả lời là: Không đối với cả vận tốc và thời gian và néu vận tốc âm thì Motor quay ngược lại. **Tại sao?** Code trên có giải thích mọi thứ.
 
 ```
       pwm.setPWM(PWM_DC1A, 0, (speed > 0) ? speed : 0);
@@ -186,7 +186,7 @@ Vận tốc hóa thời gian được cho đó là thời gian từ -4095 tới 
 
 **Giải thích:** Nếu vận tốc dương thì chân PWM_DC1A của Motor DC1 hoạt động ở tốc độ 4095 (hoặc tùy vào v mong muốn của coder miễn nó dương) và chân bên PWM_1B bên kia chạy ở tốc độ 0. Nếu vận tốc âm thì chân PWM_DC1A của động cơ DC Motor 1 sẽ không chạy do điều kiện vận tốc phải dương, chân PWM_DC1B sẽ chạy nhờ vào điều kiện vận tốc âm và nhưng thực tế vẫn chạy ở vận tốc dương vì là ```-speed```.
 
-**Ghi Nhớ: VIỆC VẬN TỐC ÂM CHỈ DÙNG ĐỂ KÍCH HOẠT ĐIỀU KIỆN TA THAY ĐỔI CHUIỀU CHỨ KHÔNG TÁC DỤNG TRONG VIỆC QUY ĐỊNH VẬN TỐC VÀ THỜI GIAN THỰC TÉ VÌ VẬN TỐC VÀ THỜI GIAN LUÔN DƯƠNG. NÊN SAU ĐÓ TA THẤY TRONG HÀM Ở ```setPƯM()``` THỨ 2 LÀ  ```(-speed)``` CHỨ KHÔNG PHẢI ```(speed)```  ĐỂ NGHỊCH ĐẢO LẠI TRẠNG THÁI ÂM CỦA ```speed``` VỀ VẬN TỐC VÀ THỜI GIAN DƯƠNG ĐỂ MOTOR CHẠY ĐƯỢC. Tóm gọn lại: VẬN TỐC ÂM DÙNG ĐẺ QUY ĐỊNH CHIỀU QUAY**
+**Ghi Nhớ: VIỆC VẬN TỐC ÂM CHỈ DÙNG ĐỂ KÍCH HOẠT ĐIỀU KIỆN TA THAY ĐỔI CHUIỀU CHỨ KHÔNG TÁC DỤNG TRONG VIỆC QUY ĐỊNH VẬN TỐC VÀ THỜI GIAN THỰC TÉ VÌ VẬN TỐC VÀ THỜI GIAN LUÔN DƯƠNG. NÊN SAU ĐÓ TA THẤY TRONG HÀM Ở ```setPƯM()``` THỨ 2 LÀ  ```(-speed)``` CHỨ KHÔNG PHẢI ```(speed)```  ĐỂ NGHỊCH ĐẢO LẠI TRẠNG THÁI ÂM CỦA ```speed``` VỀ VẬN TỐC VÀ THỜI GIAN DƯƠNG ĐỂ MOTOR CHẠY ĐƯỢC. Tóm gọn lại: VẬN TỐC ÂM DÙNG ĐẺ ĐẢO CHIỀU QUAY TỪ THUẬN SANG NGHỊCH**
 
 **Sau khi đọc xong bạn có thể quên đống code ở trên cũng được vì chúng ta có thể hoàn toàn copy và paste. Việc sử dụng hàm ```ctrl_dc();``` ở ```loop()``` quan trọng hơn.
 
@@ -241,6 +241,74 @@ void loop() {
 ```
   ctrl_dc(MOT_RIGHT,map(ps2.Analog(PSS_RY), 0, 255, SPD_FAST, -SPD_FAST)); // Lấy giá trị Y từ cần Analog bên tay trái
 ```
+
+# Giới thiệu về cách sử dụng và code Servo Motor:
+
++ **Cấu tạo:** Bao gồm một mini Motor (Kết cấu giống y hệt như DC Motor) kèm một mạch điện tử (Dùng để điều chỉnh góc). Đó cũng là lý giải tại sao dây Servo có 3 chân (2 âm dương dành cho Motor con và 1 dây tín hiệu dành cho mạch)
+
+![image](https://github.com/codexcelsior/Mastodon_Training/assets/91497379/e4961189-4028-4b71-8162-b11828bf790c)
+
+**Tiến hành code Servo:**
+
++ **Bước 1:** Tiến hành khai báo thư viện: (Thư viện và tất cả hàm liên quan của PWM , PS2X (Ta sẽ dùng để code điều khiẻn sau đó) sẽ được nhập trực tiếp qua code)
+
+```
+#include <Adafruit_PWMServoDriver.h> //Khai báo header từ thư việt Adafruit
+#include <Wire.h>
+```
+
++ **Bước 2:** Tiến hành tạo vật thể PS2 và khai chân PWM (Dành cho điều khiển động cơ):
+
+```
+PS2X ps2; //Tạo vật thể ps2 
+Adafruit_PWMServoDriver pwm;  //Hoặc Adafruit_PWMServoDriver pwm = new Adafruit_PWMServoDriver(); để tạo chân PWM 
+
+```
+
++ **Bước 3:** Khai chân PWM (Chân để gán xung):
+Lưu ý: Vì mỗi DC Motor đều có 2 chân âm dương nên khi khai số chân thì phải khai đủ số chân (Ví dụ như trong việc sử dụng 4 chiếc Motor thì cần 8 chân PWM) Người code có thể gán số tùy thích vì chưa cần phải tham chiếu với các hàm
+
+```
+// Kênh PWM (Chân của các servo và DC motor) điều khiển động cơ
+#define PWM_SERVO0          8
+#define PWM_SERVO1          9
+#define PWM_SERVO2          10
+#define PWM_SERVO3          11
+#define PWM_SERVO4          12
+```
+
++ **Bước 4:** Setup (Tương tự như điều khiển PS2 có thể đọc lại nếu quên)
+
++ **Bước 5**: Chuẩn hóa hàm Motor DC để tái sử dụng nhiều lần và giải thích code
+
+Việc sử dụng đi sử dụng lại hàm ```writeMicroseconds()``` để phải khai đi khai lại từng chân có thể khiến bạn bị rối vì mõi Motor cũng phải khai 2 chân. Trong khi đó ta ưu tiên những hàm chuẩn hóa thuận tiện để sử dụng lại trong ```loop()```
+
+
++ Code dưới đây dùng để chuẩn hóa cho servo 180 độ (Điều khiển góc):
+
+
+```
+void ctrl_servo180(uint8_t motor, float angle) {
+  uint16_t us = (uint16_t) (1000 * (1.0 + angle / 180.0));
+  switch(motor) {
+    case 0: pwm.writeMicroseconds(PWM_SERVO0, us); break; //writeMicrosecond dùng để cho Servo biét cần phải quay bao nhiều ms để quay đc 1 góc cần và đủ
+    case 1: pwm.writeMicroseconds(PWM_SERVO1, us); break;
+    case 2: pwm.writeMicroseconds(PWM_SERVO2, us); break;
+    case 3: pwm.writeMicroseconds(PWM_SERVO3, us); break;
+    case 4: pwm.writeMicroseconds(PWM_SERVO4, us); break;
+  }
+}
+```
+
+**Giải thích:** Biến motor chính là cổng vào của hay số của servo motor đó trên mạch. Biến angle là góc quay thực tế ở ngoài đời. Nhưng cách hoạt động của Servo cũng giống y hệt như DC Motor đó là vận tốc được tính trên đơn vị thời gian là us (microsecond hay micro giây). Vậy nên ta phải đổi từ góc quay ra microsecond để Servo biết góc đố quay bao nhiêu độ. Với việc code servo sẽ đơn giản hơn khi chỉ cần khai số thời gian chạy cho từng motor theo đơn vị micro giây chứ không cần phải khai hai chân cho từng motor và thời gian chạy cho từng chân của từng motor. Việc điều chỉnh góc quay chỉ cần set cho góc quay thuận hay nghịch từ 180 độ tới -180 độ.
+
+**Công thức tính góc cho servo 180 độ:**  1000 x (1.0 + số góc muốn quay / 180.0)
+
+
+ 
+
+
+
 
 
 
